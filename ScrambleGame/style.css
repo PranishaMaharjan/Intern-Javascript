@@ -1,0 +1,40 @@
+.container {
+  width: 500px;
+  height: 420px;
+  border: 1px solid black;
+  padding: 10px 40px 40px 20px;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.container__content {
+  font-size: 24px;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+.container__content input {
+  width: 415px;
+  height: 40px;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.container__content__buttons {
+  width: auto;
+  height: auto;
+  /* sborder: 1px solid black; */
+  display: flex;
+  column-gap: 20px;
+}
+
+.container__content__buttons button {
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <form action="https://www.codingmountain.com/" class="container__form">
+        <header class="signup">Signup</header>
+        <div class="container__form__input">
+          <div class="input__email email__field">
+            <input
+              type="text"
+              class="input form__email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <span class="error error__email">
+              <img class="error__icon" src="images/error-circle.png" alt="" />
+              <span class="error-text"></span>
+            </span>
+          </div>
+
+          <div class="input__password password__field">
+            <div class="">
+              <input
+                type="password"
+                class="input form__password"
+                name="password"
+                placeholder="Create password"
+              />
+              <img src="images/hide.png" alt="" class="eye-hide" />
+              <!-- <img src="images/show.png" alt="" class="eye-show" /> -->
+            </div>
+
+            <span class="error error__password">
+              <img src="images/error-circle.png" alt="" />
+              <span class="error-text">
+                Please enter atleast a character with number, symbol, small and
+                capital letter
+              </span>
+            </span>
+          </div>
+
+          <div class="input__cpassword cpassword__field">
+            <div class="">
+              <input
+                type="password"
+                class="input form__cpassword"
+                name="cpassword"
+                placeholder="Confirm password"
+              />
+              <img src="images/hide.png" alt="" class="eye-hide" />
+              <!-- <img src="images/show.png" alt="" class="eye-show" /> -->
+            </div>
+            <span class="error error__cpassword">
+              <img src="images/error-circle.png" alt="" />
+              <span class="error-text">Password don't match</span>
+            </span>
+          </div>
+
+          <input
+            type="submit"
+            class="input form__submit"
+            name="signup"
+            value="Signup Now"
+          />
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

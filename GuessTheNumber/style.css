@@ -1,0 +1,86 @@
+.container {
+  background-color: black;
+  width: 100%;
+  height: 615px;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+header {
+  padding: 30px 30px 60px 30px;
+}
+
+h1 {
+  color: white;
+  font-size: 60px;
+  text-align: center;
+}
+
+.label-score,
+.label-highscore {
+  color: white;
+  font-size: 22px;
+}
+
+.between {
+  color: white;
+  font-size: 26px;
+  margin-left: 850px;
+}
+
+.guess {
+  border: 5px solid white;
+  width: 150px;
+  height: 80px;
+  color: white;
+  font-size: 45px;
+  text-align: center;
+  background-color: black;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.score {
+  font-size: 28px;
+}
+
+.highscore {
+  font-size: 28px;
+}
+
+.number {
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  font-size: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 550px;
+  font-weight: bolder;
+}
+
+main {
+  display: flex;
+  gap: 250px;
+}
+
+.left {
+  display: grid;
+  grid-template-columns: 1;
+  gap: 30px;
+  margin-left: 400px;
+}
+
+.message {
+  color: white;
+  font-size: 36px;
+  margin-top: 0px;
+  font-weight: bolder;
+}
