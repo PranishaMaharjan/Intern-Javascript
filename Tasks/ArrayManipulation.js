@@ -99,37 +99,45 @@ console.log(activeUsers);
 const students = [
   { name: "John", grade: "A" },
   { name: "Jane", grade: "B" },
-  {
-    name: "Jake",
-    grade: "A",
-  },
+  { name: "Jake", grade: "A" },
   { name: "Jill", grade: "C" },
 ];
 
-const gradea = students
-  .filter((s) => s.grade == "A")
-  .map((a) => ({
-    name: a.name,
-  }));
+const output = {};
 
-const gradeb = students
-  .filter((s) => s.grade == "B")
-  .map((a) => ({
-    name: a.name,
-  }));
+students.forEach((s) => {
+  if (output[s.grade]) {
+    output[s.grade].push({ name: s.name });
+  } else {
+    output[s.grade] = [{ name: s.name }];
+  }
+});
 
-const gradec = students
-  .filter((s) => s.grade == "C")
-  .map((a) => ({
-    name: a.name,
-  }));
-
-const output = {
-  A: gradea,
-  B: gradeb,
-  C: gradec,
-};
 console.log(output);
+
+// const gradea = students
+//   .filter((s) => s.grade == "A")
+//   .map((a) => ({
+//     name: a.name,
+//   }));
+
+// const gradeb = students
+//   .filter((s) => s.grade == "B")
+//   .map((a) => ({
+//     name: a.name,
+//   }));
+
+// const gradec = students
+//   .filter((s) => s.grade == "C")
+//   .map((a) => ({
+//     name: a.name,
+//   }));
+
+// const output = {
+//   A: gradea,
+//   B: gradeb,
+//   C: gradec,
+// };
 
 // 3. Remove duplicate values from array
 const numbers = [1, 2, 2, 3, 4, 4, 5];
@@ -151,8 +159,8 @@ console.log(flatArray);
 // 5. Count occurrences of each fruit
 const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
 // let count = 0;
-const appleCount = fruits.reduce((count, fruit) => {
-  count[fruit] = (count[fruit] || 0) + 1;
+const appleCount = fruits.reduce((count, currentFruit) => {
+  count[currentFruit] = (count[currentFruit] || 0) + 1;
   return count;
 }, {});
 
@@ -181,18 +189,98 @@ for (let i = 0; i < products.length; i++) {
 }
 console.log(expensive1, expensive2);
 
-// 7. Sum all ages in a nested structure
+// // 7. Sum all ages in a nested structure
+// // const family = {
+// //   father: { age: 50 },
+// //   mother: { age: 48 },
+// //   children: [
+// //     { name: "Anna", age: 20 },
+// //     { name: "Tom", age: 18 },
+// //   ],
+// // };
+
+// function sumAges(object) {
+//   let total = 0;
+
+//   if (Array.isArray(object)) {
+//     let sum = 0;
+//     return object.reduce((sum, item) => sum + sumAges(item), 0);
+//     // for (const item in object) {
+//     //   sum += sumAges(item);
+//     // }
+//   }
+//   // else if (typeof object === "object" && object !== null) {
+//   //   let sum = 0;
+//   //   for (const [key, value] of Object.entries(object)) {
+//   //     if (key === "age" && typeof value === "number") {
+//   //       sum += value;
+//   //     } else {
+//   //       sum += sumAges(value);
+//   //     }
+//   //   }
+//   //   return sum;
+//   // }
+//   else{
+//     sum+=object
+//   }
+//   return 0;
+// }
+
+// console.log(sumAges(family));
+
 const family = {
-  father: { age: 50 },
+  // father: { age: 50 },
   mother: { age: 48 },
   children: [
     { name: "Anna", age: 20 },
     { name: "Tom", age: 18 },
   ],
+
+  father: { age: 50 },
+  cousin: { info: { age: 20 } },
 };
-const totalAge = [
-  family.father.age +
-    family.mother.age +
-    family.children.map((c) => c.age).reduce((sum, age) => sum + age, 0),
-];
-console.log(totalAge);
+
+const sumAge = (obj) => {
+  let total = 0;
+
+  if (typeof obj === "object" && obj !== null) {
+    // If this object itself has an age
+    if ("age" in obj && typeof obj.age === "number") {
+      total += obj.age;
+    }
+
+    // If it's an array, loop through its items
+    if (Array.isArray(obj)) {
+      for (const item of obj) {
+        total += sumAge(item);
+      }
+    } else {
+      // If it's a plain object, loop through its properties
+      for (const key in obj) {
+        console.log(key);
+        total += sumAge(obj[key]);
+      }
+    }
+  }
+
+  return total;
+};
+
+console.log(sumAge(family));
+
+let age = 0;
+
+const calculateAge = (family) => {
+  const keys = Object.keys(family);
+  keys.forEach((k) => {
+    if (Array.isArray(family[k])) {
+      calculateAge(family[k]);
+    } else {
+      age += family[k].age;
+    }
+  });
+};
+
+calculateAge(family);
+console.log(sumAge(family));
+console.log(age);

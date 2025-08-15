@@ -35,3 +35,13 @@
 
 // // Accessing all array
 // document.getElementById("demo").innerHTML = cars;
+
+//Output:[34,89,78,0,12,0](convert 0 if not a number)
+let arr = [34, 89, 78, "test", 12, false];
+const result = arr.map((a) => {
+  if (typeof a != "number") {
+    return Number(a);
+  }
+  return a;
+});
+console.log(result);
